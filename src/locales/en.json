@@ -1,0 +1,17 @@
+{
+  "header": {
+    "title": "Mateusz Serwinowski",
+    "subtitle": "Full-Stack Developer"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "portfolio": "Portfolio",
+    "languages": "Languages",
+    "contact": "Contact"
+  }
+}
+

@@ -1,0 +1,50 @@
+{
+  "header": {
+    "title": "Mateusz Serwinowski",
+    "subtitle": "Full-Stack Developer"
+  },
+  "nav": {
+    "home": "Strona główna",
+    "about": "O mnie",
+    "experience": "Doświadczenie",
+    "education": "Edukacja",
+    "skills": "Umiejętności",
+    "portfolio": "Portfolio",
+    "languages": "Języki",
+    "contact": "Kontakt"
+  },
+
+  "About Me": "O mnie",
+  "I am an experienced Full-Stack Developer with over 10 years of experience in creating modern web applications. I specialize in technologies such as Laravel, Vue.js, React, and Tailwind CSS.": "Jestem doświadczonym Full-Stack Developerem z ponad 10-letnim doświadczeniem w tworzeniu nowoczesnych aplikacji webowych. Specjalizuję się w technologiach takich jak Laravel, Vue.js, React i Tailwind CSS.",
+  "Personal Information": "Dane osobowe",
+  "Phone": "Telefon",
+  "Date of birth": "Data urodzenia",
+
+  "Experience": "Doświadczenie",
+
+  "Education": "Edukacja",
+
+  "Portfolio": "Portfolio",
+  "View project": "Zobacz projekt",
+  "Online store for firefighters based on prestashop": "Sklep internetowy dla strażaków oparty o prestashop",
+  "CRM and ERP software for sales management, integration with an online store and a trade program. Based on Laravel and Livewire using Fluxui.": "Oprogramowanie CRM i ERP do zarządzania sprzedażą, integracji ze sklepem internetowym oraz programem handlowym. Oparte o laravel oraz livewire z wykorzystaniem fluxui.",
+  "Own company offering Web Development, Hosting as well as administrative services": "Własna firma oferująca usługi web developmentu, hostingu jak również usług administracyjnych",
+
+
+  "Skills": "Umiejętności",
+  "Programming languages": "Języki programowania",
+  "Framework PHP": "Frameworki PHP",
+  "Framework JavaScript": "Frameworki JavaScript",
+  "Framework CSS":  "Frameworki CSS",
+  "Databases": "Bazy danych",
+  "DevOps and Systems": "DevOps i Systemy",
+  "Tools and others": "Narzędzia i inne",
+  "Additional": "Dodatkowe",
+
+  "Languages": "Języki",
+  "English": "Angielski",
+  "Polish": "Polski",
+  "Level": "Poziom",
+  "Native": "Ojczysty"
+}
+
