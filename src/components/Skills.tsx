@@ -76,6 +76,16 @@ const skillCategories: SkillCategory[] = [
         ],
     },
     {
+        name: "Graphic and video",
+        skills: [
+            { name: "Adobe PhotoShop", level: 70 },
+            { name: "Adobe Illustrator", level: 65 },
+            { name: "Adobe XD", level: 65 },
+            { name: "Figma", level: 70 },
+            { name: "Adobe Premier Pro", level: 60 },
+        ],
+    },
+    {
         name: "Additional",
         skills: [
             { name: "Prestashop", level: 85 },

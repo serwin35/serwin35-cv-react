@@ -1,7 +1,9 @@
 {
   "header": {
     "title": "Mateusz Serwinowski",
-    "subtitle": "Full-Stack Developer"
+    "subtitle": "Full-Stack Developer",
+    "cityAndCountry": "Lodz, Poland",
+    "firefighter": "Fireman - lifeguard in OSP Stara Łomnica"
   },
   "nav": {
     "home": "Home",

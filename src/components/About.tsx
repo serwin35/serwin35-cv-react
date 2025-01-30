@@ -21,9 +21,7 @@ export default function About({ isVisible }: AboutProps) {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
                 <div>
-                    <p className="text-gray-300 mb-4">
-                        {t("I am an experienced Full-Stack Developer with over 10 years of experience in creating modern web applications. I specialize in technologies such as Laravel, Vue.js, React, and Tailwind CSS.")}
-                    </p>
+                    <p className="text-gray-300 mb-4">{t("I am an experienced Full-Stack Developer with over 10 years of experience in creating modern web applications. I specialize in technologies such as Laravel, Vue.js, React, and Tailwind CSS.")}</p>
                 </div>
                 <div className="bg-white/5 p-6 rounded-lg">
                     <h3 className="text-xl font-semibold mb-4">{t('Personal Information')}</h3>

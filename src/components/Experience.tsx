@@ -11,18 +11,35 @@ export default function Experience({ isVisible }: ExperienceProps) {
 
     const experiences = [
         {
-            period: "Sierpień 2023 - obecnie",
+            period: "Lipiec 2023 - obecnie",
             title: "Full-Stack Developer",
             company: "MyBit Poland sp z o.o.",
-            description:
-                "Rozwój aplikacji webowych opartych na frameworku Laravel z wykorzystaniem Vue.js, Livewire, Inertia.js, PHP",
+            description: "Rozwój aplikacji webowych opartych na frameworku Laravel z wykorzystaniem Vue.js, React.js, Livewire, Inertia.js, Booststrap oraz Tailwind CSS",
         },
         {
-            period: "Styczeń 2023 - Lipiec 2023",
-            title: "Full-Stack Developer",
-            company: "Amsterdam Standard sp z o.o.",
-            description: "Rozwój aplikacji webowych i modernizacja sklepów internetowych",
+            period: "Październik 2021 - obecnie",
+            title: "Full-Stack Developer & DevOps",
+            company: "DMservice sp z o.o.",
+            description: "Rozwój aplikacji webowej opartej na frameworku Laravel z wykorzystaniem Livewire oraz Tailwind CSS, administracja serwera, modernizacja sklepu internetowego opartego o PrestaShop",
         },
+        {
+            period: "Styczeń 2023 - Czerwiec 2023",
+            title: "Full-Stack Developer",
+            company: "Amsterdam Standard sp z o.o. (Połączenie z HighSolutions sp. z o.o.)",
+            description: "Rozwój aplikacji webowych opartych na frameworku Laravel z wykorzystaniem Vue.js, React.js, Livewire, Inertia.js, Booststrap oraz Tailwind CSS",
+        },
+        {
+            period: "Kwiecień 2022 - Styczeń 2023",
+            title: "Full-Stack Developer",
+            company: "HighSolutions sp z o.o.",
+            description: "Rozwój aplikacji webowych opartych na frameworku Laravel z wykorzystaniem Vue.js, Livewire, Booststrap oraz Tailwind CSS",
+        },
+        {
+            period: "Czerwiec 2011 - Grudzień 2021",
+            title: "Full-Stack Developer",
+            company: "Blue-NET",
+            description: "Tworzenie strony oraz sklepów internetowych opartych o dostępne rozwiązania takie jak PrestaShop, Wordpress, Joomla. Jak również tworzenie aplikacji webowych w oparciu o Code Igniter, Yii, Laravel.",
+        }
     ]
 
     return (

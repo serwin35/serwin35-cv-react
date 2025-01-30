@@ -13,14 +13,14 @@ export default function Education({ isVisible }: EducationProps) {
         {
             period: "2010 - 2014",
             title: "Inżynier Informatyk",
-            institution: "Politechnika Łódzka",
-            description: "Studia magisterskie na kierunku Informatyka",
+            institution: "Wrocławska Wyższa Szkoła Informatyki Stosowanej",
+            description: "Studia inżynierskie na kierunku Administracja sieci",
         },
         {
-            period: "2006 - 2010",
-            title: "Technik Informatyk",
-            institution: "Zespół Szkół Technicznych w Łodzi",
-            description: "Studia policealne na kierunku Technik Informatyk",
+            period: "2007 - 2010",
+            title: "Liceum Profilowane",
+            institution: "Zespół Szkół Ponadgimnazjalnych w Bystrzycy Kłodzkiej",
+            description: "Liceum profilowane o profilu zarządzanie informacją",
         },
     ]
 

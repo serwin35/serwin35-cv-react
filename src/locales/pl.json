@@ -1,7 +1,9 @@
 {
   "header": {
     "title": "Mateusz Serwinowski",
-    "subtitle": "Full-Stack Developer"
+    "subtitle": "Full-Stack Developer",
+    "cityAndCountry": "Łódź, Polska",
+    "firefighter": "Strażak - Ratownik w OSP Stara Łomnica"
   },
   "nav": {
     "home": "Strona główna",
@@ -39,6 +41,7 @@
   "Databases": "Bazy danych",
   "DevOps and Systems": "DevOps i Systemy",
   "Tools and others": "Narzędzia i inne",
+  "Graphic and video": "Grafika i wideo",
   "Additional": "Dodatkowe",
 
   "Languages": "Języki",
