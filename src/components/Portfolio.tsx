@@ -16,19 +16,19 @@ const projects: Project[] = [
     {
         title: "SklepStrazacki.pl",
         description: "Online store for firefighters based on prestashop",
-        imageUrl: "/src/assets/images/placeholder.svg?height=200&width=300",
+        imageUrl: "/assets/images/placeholder.svg?height=200&width=300",
         projectUrl: "https://sklepstrazacki.pl",
     },
     {
         title: "WF-Chart",
         description: "CRM and ERP software for sales management, integration with an online store and a trade program. Based on Laravel and Livewire using Fluxui.",
-        imageUrl: "/src/assets/images/placeholder.svg?height=200&width=300",
+        imageUrl: "/assets/images/placeholder.svg?height=200&width=300",
         projectUrl: "http://wolffire.pl",
     },
     {
         title: "Blue-NET",
         description: "Own company offering Web Development, Hosting as well as administrative services",
-        imageUrl: "/src/assets/images/placeholder.svg?height=200&width=300",
+        imageUrl: "/assets/images/placeholder.svg?height=200&width=300",
         projectUrl: "http://blue-net.pl",
     },
 ]
