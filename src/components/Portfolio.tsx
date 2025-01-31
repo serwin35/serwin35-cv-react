@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import {useTranslation} from "react-i18next";
+import placeholderImage from "../assets/images/placeholder.svg"
 
 interface PortfolioProps {
     isVisible: boolean
@@ -16,19 +17,19 @@ const projects: Project[] = [
     {
         title: "SklepStrazacki.pl",
         description: "Online store for firefighters based on prestashop",
-        imageUrl: "/assets/images/placeholder.svg?height=200&width=300",
+        imageUrl: placeholderImage,
         projectUrl: "https://sklepstrazacki.pl",
     },
     {
         title: "WF-Chart",
         description: "CRM and ERP software for sales management, integration with an online store and a trade program. Based on Laravel and Livewire using Fluxui.",
-        imageUrl: "/assets/images/placeholder.svg?height=200&width=300",
+        imageUrl: placeholderImage,
         projectUrl: "http://wolffire.pl",
     },
     {
         title: "Blue-NET",
         description: "Own company offering Web Development, Hosting as well as administrative services",
-        imageUrl: "/assets/images/placeholder.svg?height=200&width=300",
+        imageUrl: placeholderImage,
         projectUrl: "http://blue-net.pl",
     },
 ]
