@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next"
+import avatarImg from "../assets/images/avatar.jpg"
 
 export default function Header() {
     const { t, i18n } = useTranslation()
@@ -15,10 +16,9 @@ export default function Header() {
             <div className="relative shrink-0">
                 <div className="w-28 h-28 rounded-2xl overflow-hidden ring-2 ring-[var(--color-accent-border)] shadow-lg shadow-[var(--color-accent-muted)]">
                     <img
-                        src="https://scontent.flcj1-1.fna.fbcdn.net/v/t1.6435-9/61706533_2193550927346901_6133483735598759936_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=AZo-zEdroTAQ7kNvgG6Gngo&_nc_oc=AdhdSuXif1F71hS8mVUyjop8WRHJdnMDJNnFiZjcJqCSX86N7mlHpPgIrMa3oHbAOaA&_nc_zt=23&_nc_ht=scontent.flcj1-1.fna&_nc_gid=AnjDtwvYEqPARfjSvgQ0T3C&oh=00_AYA0RUy5LxgJWZ6LuwlkywfLeDMDtgUMyHE9j33HHoJhWA&oe=67C34B18"
+                        src={avatarImg}
                         alt="Mateusz Serwinowski"
                         className="w-full h-full object-cover"
-                        crossOrigin="anonymous"
                     />
                 </div>
                 {/* Online indicator */}
