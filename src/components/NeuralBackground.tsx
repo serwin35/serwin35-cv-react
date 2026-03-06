@@ -20,7 +20,7 @@ const NeuralBackground: React.FC = () => {
 
         let animationFrameId: number
         let particles: Particle[] = []
-        const mouse = { x: 0, y: 0 }
+        const mouse = { x: -9999, y: -9999 }
 
         const resizeCanvas = () => {
             canvas.width = window.innerWidth
@@ -28,82 +28,73 @@ const NeuralBackground: React.FC = () => {
         }
 
         const createParticles = () => {
-            const particleCount = 100
-            particles = []
-            for (let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 2,
-                    vy: (Math.random() - 0.5) * 2,
-                })
-            }
+            const count = Math.min(80, Math.floor((window.innerWidth * window.innerHeight) / 18000))
+            particles = Array.from({ length: count }, () => ({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.6,
+                vy: (Math.random() - 0.5) * 0.6,
+            }))
         }
 
-        const drawParticles = () => {
+        const draw = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height)
-            ctx.fillStyle = "#ffd93d"
-            particles.forEach((particle) => {
+
+            // Update + draw particles
+            particles.forEach((p) => {
+                p.x += p.vx
+                p.y += p.vy
+
+                if (p.x < 0 || p.x > canvas.width)  p.vx *= -1
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1
+
+                // Subtle mouse repulsion
+                const dx = mouse.x - p.x
+                const dy = mouse.y - p.y
+                const dist = Math.sqrt(dx * dx + dy * dy)
+                if (dist < 120) {
+                    p.x -= dx * 0.015
+                    p.y -= dy * 0.015
+                }
+
                 ctx.beginPath()
-                ctx.arc(particle.x, particle.y, 2, 0, Math.PI * 2)
+                ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2)
+                ctx.fillStyle = "rgba(59, 130, 246, 0.5)"
                 ctx.fill()
             })
-        }
 
-        const connectParticles = () => {
-            const maxDistance = 100
-            particles.forEach((particle, i) => {
-                particles.slice(i + 1).forEach((otherParticle) => {
-                    const dx = particle.x - otherParticle.x
-                    const dy = particle.y - otherParticle.y
-                    const distance = Math.sqrt(dx * dx + dy * dy)
-                    if (distance < maxDistance) {
-                        ctx.strokeStyle = `rgba(255, 217, 61, ${1 - distance / maxDistance})`
+            // Draw connections
+            const maxDist = 110
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x
+                    const dy = particles[i].y - particles[j].y
+                    const dist = Math.sqrt(dx * dx + dy * dy)
+                    if (dist < maxDist) {
+                        const alpha = (1 - dist / maxDist) * 0.18
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${alpha})`
                         ctx.lineWidth = 1
                         ctx.beginPath()
-                        ctx.moveTo(particle.x, particle.y)
-                        ctx.lineTo(otherParticle.x, otherParticle.y)
+                        ctx.moveTo(particles[i].x, particles[i].y)
+                        ctx.lineTo(particles[j].x, particles[j].y)
                         ctx.stroke()
                     }
-                })
-            })
-        }
-
-        const updateParticles = () => {
-            particles.forEach((particle) => {
-                particle.x += particle.vx
-                particle.y += particle.vy
-
-                if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-                if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
-
-                const dx = mouse.x - particle.x
-                const dy = mouse.y - particle.y
-                const distance = Math.sqrt(dx * dx + dy * dy)
-                if (distance < 100) {
-                    particle.x -= dx * 0.03
-                    particle.y -= dy * 0.03
                 }
-            })
+            }
+
+            animationFrameId = requestAnimationFrame(draw)
         }
 
-        const animate = () => {
-            updateParticles()
-            drawParticles()
-            connectParticles()
-            animationFrameId = requestAnimationFrame(animate)
-        }
-
-        const handleMouseMove = (event: MouseEvent) => {
-            mouse.x = event.clientX
-            mouse.y = event.clientY
+        const handleMouseMove = (e: MouseEvent) => {
+            mouse.x = e.clientX
+            mouse.y = e.clientY
         }
 
         resizeCanvas()
         createParticles()
-        animate()
+        draw()
 
-        window.addEventListener("resize", resizeCanvas)
+        window.addEventListener("resize", () => { resizeCanvas(); createParticles() })
         window.addEventListener("mousemove", handleMouseMove)
 
         return () => {
@@ -113,8 +104,7 @@ const NeuralBackground: React.FC = () => {
         }
     }, [])
 
-    return <canvas ref={canvasRef} className="fixed inset-0 z-[-1]" />
+    return <canvas ref={canvasRef} className="fixed inset-0 z-0" aria-hidden="true" />
 }
 
 export default NeuralBackground
-

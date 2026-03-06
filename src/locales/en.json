@@ -3,7 +3,9 @@
     "title": "Mateusz Serwinowski",
     "subtitle": "Full-Stack Developer",
     "cityAndCountry": "Lodz, Poland",
-    "firefighter": "Fireman - lifeguard in OSP Stara Łomnica"
+    "firefighter": "Volunteer Firefighter · OSP Stara Łomnica",
+    "yearsExp": "years of experience",
+    "contact": "Contact me"
   },
   "nav": {
     "home": "Home",
@@ -14,6 +16,77 @@
     "portfolio": "Portfolio",
     "languages": "Languages",
     "contact": "Contact"
-  }
-}
+  },
 
+  "About Me": "About Me",
+  "Personal Information": "Personal Information",
+  "Phone": "Phone",
+  "Date of birth": "Date of birth",
+
+  "about": {
+    "bio": "I am an experienced Full-Stack Developer and DevOps Engineer with over 10 years of industry experience. I specialize in building modern web applications with Laravel, Vue.js and React, while also managing server infrastructure — Docker, Linux and CI/CD pipelines. Currently working at Kuchnia Vikinga and DMservice.",
+    "statYears": "years of experience",
+    "statProjects": "projects delivered",
+    "statCompanies": "companies"
+  },
+
+  "Experience": "Experience",
+  "exp": {
+    "current": "Current",
+    "period1": "07.2023 — present",
+    "period2": "10.2021 — present",
+    "period3": "01.2023 — 06.2023",
+    "period4": "04.2022 — 01.2023",
+    "period5": "06.2011 — 12.2021",
+    "desc1": "Development of web applications using Laravel with Vue.js, React, Livewire and Inertia.js. Built new CRM modules and integrated external APIs.",
+    "desc2": "Development of a CRM/ERP web application with Laravel + Livewire, Linux server administration, PrestaShop modernization and Docker deployment.",
+    "desc3": "Building web applications in the Laravel + Vue.js / React ecosystem using Inertia.js and Bootstrap.",
+    "desc4": "Development and maintenance of web applications using Laravel with Vue.js, Livewire and Tailwind CSS.",
+    "desc5": "Creating websites and online stores (PrestaShop, WordPress, Joomla) and web applications (CodeIgniter, Yii, Laravel)."
+  },
+
+  "Education": "Education",
+  "edu": {
+    "period1": "2010 — 2014",
+    "period2": "2007 — 2010",
+    "title1": "Computer Science Engineer",
+    "title2": "Technical High School",
+    "institution1": "Wroclaw University of Applied Informatics",
+    "institution2": "Secondary School Complex in Bystrzyca Kłodzka",
+    "desc1": "Engineering degree in Computer Network Administration.",
+    "desc2": "Information management profile."
+  },
+
+  "Skills": "Skills",
+  "Programming languages": "Programming languages",
+  "Framework PHP": "PHP Frameworks",
+  "Framework JavaScript": "JavaScript Frameworks",
+  "Framework CSS": "CSS Frameworks",
+  "Databases": "Databases",
+  "DevOps and Systems": "DevOps & Systems",
+  "Tools and others": "Tools & Others",
+  "Graphic and video": "Graphic & Video",
+  "Additional": "Additional",
+
+  "Portfolio": "Portfolio",
+  "View project": "View project",
+  "portfolio": {
+    "desc1": "Online store for firefighters built on PrestaShop with custom theme and integrations.",
+    "desc2": "CRM and ERP software for sales management with online store and trade program integration. Laravel + Livewire + Flux UI.",
+    "desc3": "Own company offering Web Development, hosting and server administration services.",
+    "desc4": "Public DevOps handbook — a collection of patterns, scripts and CI/CD configurations.",
+    "desc5": "Ready-made Docker environment for Laravel projects with Nginx, PHP-FPM and MySQL.",
+    "desc6": "Simple timesheet and vacation management application for small businesses.",
+    "status": {
+      "live": "Live",
+      "private": "Private",
+      "wip": "In Progress"
+    }
+  },
+
+  "Languages": "Languages",
+  "English": "English",
+  "Polish": "Polish",
+  "Level": "Level",
+  "Native": "Native"
+}

@@ -1,97 +1,68 @@
-import {motion} from "framer-motion"
-import {useEffect, useState} from "react"
-import NeuralBackground from "./NeuralBackground.tsx";
+import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 export default function LoadingScreen() {
-    const [loadingProgress, setLoadingProgress] = useState(0)
+    const [progress, setProgress] = useState(0)
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setLoadingProgress((prev) => {
+            setProgress((prev) => {
                 if (prev >= 100) {
                     clearInterval(interval)
                     return 100
                 }
-                return prev + 1
+                return prev + 2
             })
-        }, 20)
-
+        }, 30)
         return () => clearInterval(interval)
     }, [])
 
-    const progressVariants = {
-        initial: {width: "0%"},
-        animate: {width: `${loadingProgress}%`},
-    }
-
-    const textVariants = {
-        initial: {opacity: 0, y: 20},
-        animate: {opacity: 1, y: 0},
-    }
-
     return (
-        <>
-            <div className="fixed inset-0 bg-page z-40">
-            <NeuralBackground />
+        <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-50 flex items-center justify-center"
+            style={{ background: "var(--color-bg-base)" }}
+        >
+            <div className="w-full max-w-xs px-8 text-center">
+                {/* Animated logo */}
                 <motion.div
-                    initial={{opacity: 1}}
-                    exit={{opacity: 0}}
-                    transition={{duration: 0.5}}
-                    className="fixed inset-0 flex items-center justify-center z-50"
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                    className="w-16 h-16 rounded-2xl bg-[var(--color-accent)] text-white font-bold text-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-[var(--color-accent-muted)]"
                 >
-                    <div className="w-full max-w-md px-8">
-                        <motion.div
-                            initial={{scale: 0.5, opacity: 0}}
-                            animate={{scale: 1, opacity: 1}}
-                            className="text-center mb-8"
-                        >
-                            <motion.div
-                                animate={{rotate: 360}}
-                                transition={{duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "linear"}}
-                                className="w-20 h-20 border-4 border-white border-t-transparent rounded-full mx-auto mb-4"
-                            />
-                            <motion.h2
-                                variants={textVariants}
-                                initial="initial"
-                                animate="animate"
-                                className="text-white text-2xl font-bold"
-                            >
-                                Mateusz Serwinowski
-                            </motion.h2>
-                            <motion.p
-                                variants={textVariants}
-                                initial="initial"
-                                animate="animate"
-                                transition={{delay: 0.2}}
-                                className="text-gray-400"
-                            >
-                                Full-Stack Developer
-                            </motion.p>
-                        </motion.div>
-
-                        <div className="w-full bg-white/10 rounded-full h-2 mb-4">
-                            <motion.div
-                                variants={progressVariants}
-                                initial="initial"
-                                animate="animate"
-                                transition={{duration: 0.1}}
-                                className="bg-primary h-full rounded-full"
-                            />
-                        </div>
-
-                        <motion.div
-                            variants={textVariants}
-                            initial="initial"
-                            animate="animate"
-                            transition={{delay: 0.1}}
-                            className="text-center text-white"
-                        >
-                            Loading... {loadingProgress}%
-                        </motion.div>
-                    </div>
+                    MS
                 </motion.div>
+
+                <motion.h2
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-xl font-bold text-[var(--color-text-primary)] mb-1"
+                >
+                    Mateusz Serwinowski
+                </motion.h2>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-sm text-[var(--color-text-secondary)] mb-8"
+                >
+                    Full-Stack Developer &amp; DevOps
+                </motion.p>
+
+                {/* Progress bar */}
+                <div className="w-full h-0.5 rounded-full bg-[var(--color-bar-track)] overflow-hidden">
+                    <motion.div
+                        className="h-full rounded-full bg-[var(--color-accent)]"
+                        initial={{ width: "0%" }}
+                        animate={{ width: `${progress}%` }}
+                        transition={{ duration: 0.1 }}
+                    />
+                </div>
             </div>
-        </>
+        </motion.div>
     )
 }
-
