@@ -1,99 +1,106 @@
 import { motion } from "framer-motion"
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next"
 
 interface SkillsProps {
     isVisible: boolean
 }
 
-interface Skill {
-    name: string
-    level: number
-}
-
 interface SkillCategory {
-    name: string
-    skills: Skill[]
+    nameKey: string
+    icon: string
+    skills: string[]
 }
 
 const skillCategories: SkillCategory[] = [
     {
-        name: "Programming languages",
-        skills: [
-            { name: "PHP", level: 95 },
-            { name: "HTML/CSS", level: 95 },
-            { name: "JavaScript", level: 85 },
-            { name: "TypeScript", level: 80 },
-        ],
+        nameKey: "Programming languages",
+        icon: "💻",
+        skills: ["PHP", "JavaScript", "TypeScript", "HTML / CSS"],
     },
     {
-        name: "Framework PHP",
-        skills: [
-            { name: "Laravel", level: 95 },
-            { name: "CodeIgniter", level: 80 },
-            { name: "Symfony", level: 75 },
-        ],
+        nameKey: "Framework PHP",
+        icon: "🐘",
+        skills: ["Laravel", "Livewire", "CodeIgniter", "Symfony"],
     },
     {
-        name: "Framework JavaScript",
-        skills: [
-            { name: "Vue.js", level: 85 },
-            { name: "React", level: 80 },
-            { name: "Angular", level: 70 },
-        ],
+        nameKey: "Framework JavaScript",
+        icon: "⚡",
+        skills: ["Vue.js", "React", "Inertia.js", "Alpine.js"],
     },
     {
-        name: "Framework CSS",
-        skills: [
-            { name: "Tailwind CSS", level: 90 },
-            { name: "Bootstrap", level: 85 },
-            { name: "Sass", level: 80 },
-        ],
+        nameKey: "Framework CSS",
+        icon: "🎨",
+        skills: ["Tailwind CSS", "Bootstrap", "Sass / SCSS"],
     },
     {
-        name: "Databases",
-        skills: [
-            { name: "MySQL", level: 85 },
-            { name: "PostgreSQL", level: 80 },
-            { name: "MongoDB", level: 75 },
-        ],
+        nameKey: "Databases",
+        icon: "🗄️",
+        skills: ["MySQL", "PostgreSQL", "MongoDB", "Redis"],
     },
     {
-        name: "DevOps and Systems",
-        skills: [
-            { name: "Linux", level: 85 },
-            { name: "Docker", level: 80 },
-            { name: "AWS", level: 75 },
-        ],
+        nameKey: "DevOps and Systems",
+        icon: "🛠️",
+        skills: ["Docker", "Linux", "Nginx", "Git", "CI/CD", "Ansible", "Terraform", "Cloudflare"],
     },
     {
-        name: "Tools and others",
-        skills: [
-            { name: "Git", level: 90 },
-            { name: "ClickUp", level: 95 },
-            { name: "Asana", level: 80 },
-            { name: "JIRA", level: 80 },
-            { name: "Trello", level: 85 },
-        ],
+        nameKey: "Cloud AWS",
+        icon: "☁️",
+        skills: ["EC2", "S3", "RDS", "Route 53", "CloudFront", "ECS"],
     },
     {
-        name: "Graphic and video",
-        skills: [
-            { name: "Adobe PhotoShop", level: 70 },
-            { name: "Adobe Illustrator", level: 65 },
-            { name: "Adobe XD", level: 65 },
-            { name: "Figma", level: 70 },
-            { name: "Adobe Premier Pro", level: 60 },
-        ],
+        nameKey: "Tools and others",
+        icon: "🔧",
+        skills: ["Git", "Jira", "ClickUp", "Figma", "Postman"],
     },
     {
-        name: "Additional",
-        skills: [
-            { name: "Prestashop", level: 85 },
-            { name: "Wordpress", level: 75 },
-            { name: "Woocommerce", level: 75 },
-        ],
+        nameKey: "Additional",
+        icon: "🛒",
+        skills: ["PrestaShop", "WordPress", "WooCommerce"],
     },
 ]
+
+const levelMap: Record<string, number> = {
+    "PHP": 95,
+    "JavaScript": 85,
+    "TypeScript": 80,
+    "HTML / CSS": 95,
+    "Laravel": 95,
+    "Livewire": 90,
+    "CodeIgniter": 80,
+    "Symfony": 70,
+    "Vue.js": 85,
+    "React": 80,
+    "Inertia.js": 85,
+    "Alpine.js": 75,
+    "Tailwind CSS": 90,
+    "Bootstrap": 85,
+    "Sass / SCSS": 80,
+    "MySQL": 85,
+    "PostgreSQL": 80,
+    "MongoDB": 70,
+    "Redis": 70,
+    "Docker": 88,
+    "Linux": 85,
+    "Nginx": 82,
+    "CI/CD": 80,
+    "Ansible": 61,
+    "Terraform": 61,
+    "Cloudflare": 85,
+    "Git": 92,
+    "EC2": 82,
+    "S3": 85,
+    "RDS": 78,
+    "Route 53": 78,
+    "CloudFront": 75,
+    "ECS": 72,
+    "Jira": 85,
+    "ClickUp": 90,
+    "Figma": 70,
+    "Postman": 85,
+    "PrestaShop": 85,
+    "WordPress": 78,
+    "WooCommerce": 75,
+}
 
 export default function Skills({ isVisible }: SkillsProps) {
     const { t } = useTranslation()
@@ -104,38 +111,51 @@ export default function Skills({ isVisible }: SkillsProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="text-white"
+            className="text-[var(--color-text-primary)]"
         >
-            <h2 className="text-3xl font-bold mb-6">
-                {t("Skills")}
+            <h2 className="section-title">
+                {t("Skills")} <span className="text-[var(--color-accent)]">.</span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {skillCategories.map((category, categoryIndex) => (
-                    <div key={categoryIndex} className="mb-6">
-                        <h3 className="text-xl font-semibold mb-4 text-primary">{ t(`${category.name}`) }</h3>
-                        {category.skills.map((skill, skillIndex) => (
-                            <motion.div
-                                key={skillIndex}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: skillIndex * 0.1 }}
-                                className="mb-4"
-                            >
-                                <div className="flex justify-between mb-2">
-                                    <span>{skill.name}</span>
-                                    <span>{skill.level}%</span>
-                                </div>
-                                <div className="w-full bg-white/10 rounded-full h-2.5">
-                                    <motion.div
-                                        initial={{ width: 0 }}
-                                        animate={{ width: `${skill.level}%` }}
-                                        transition={{ duration: 1, delay: skillIndex * 0.1 }}
-                                        className="bg-red-700/80 h-2.5 rounded-full"
-                                    />
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {skillCategories.map((category, catIdx) => (
+                    <motion.div
+                        key={catIdx}
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: catIdx * 0.05 }}
+                        className="cv-card p-5"
+                    >
+                        <h3 className="text-sm font-semibold text-[var(--color-text-primary)] uppercase tracking-wider mb-4 flex items-center gap-2">
+                            <span>{category.icon}</span>
+                            {t(category.nameKey)}
+                        </h3>
+                        <div className="space-y-3">
+                            {category.skills.map((skill, skillIdx) => {
+                                const level = levelMap[skill] ?? 75
+                                return (
+                                    <div key={skillIdx}>
+                                        <div className="flex justify-between items-center mb-1.5">
+                                            <span className="text-sm text-[var(--color-text-secondary)]">{skill}</span>
+                                            <span className="text-xs font-mono text-[var(--color-text-muted)]">{level}%</span>
+                                        </div>
+                                        <div
+                                            className="w-full rounded-full h-1"
+                                            style={{ background: "var(--color-bar-track)" }}
+                                        >
+                                            <motion.div
+                                                initial={{ width: 0 }}
+                                                animate={{ width: `${level}%` }}
+                                                transition={{ duration: 0.8, delay: catIdx * 0.05 + skillIdx * 0.06, ease: "easeOut" }}
+                                                className="h-full rounded-full"
+                                                style={{ background: "var(--color-bar-fill)" }}
+                                            />
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </motion.div>
                 ))}
             </div>
         </motion.div>

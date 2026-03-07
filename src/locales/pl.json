@@ -3,7 +3,11 @@
     "title": "Mateusz Serwinowski",
     "subtitle": "Full-Stack Developer",
     "cityAndCountry": "Łódź, Polska",
-    "firefighter": "Strażak - Ratownik w OSP Stara Łomnica"
+    "firefighter": "Strażak-Ratownik · OSP Stara Łomnica",
+    "yearsExp": "lat doświadczenia",
+    "projects": "projektów",
+    "remote": "Praca zdalna",
+    "contact": "Napisz do mnie"
   },
   "nav": {
     "home": "Strona główna",
@@ -17,32 +21,77 @@
   },
 
   "About Me": "O mnie",
-  "I am an experienced Full-Stack Developer with over 10 years of experience in creating modern web applications. I specialize in technologies such as Laravel, Vue.js, React, and Tailwind CSS.": "Jestem doświadczonym Full-Stack Developerem z ponad 10-letnim doświadczeniem w tworzeniu nowoczesnych aplikacji webowych. Specjalizuję się w technologiach takich jak Laravel, Vue.js, React i Tailwind CSS.",
   "Personal Information": "Dane osobowe",
   "Phone": "Telefon",
-  "Date of birth": "Data urodzenia",
+  "Age": "Wiek",
+
+  "about": {
+    "bio": "Jestem doświadczonym Full-Stack Developerem oraz DevOps Engineerem z ponad 17-letnim stażem. Specjalizuję się w tworzeniu nowoczesnych aplikacji webowych opartych na Laravel, Vue.js i React, a równolegle zarządzam infrastrukturą serwerową – Docker, AWS i CI/CD. Pracuję dla firm takich jak Kuchnia Vikinga i DMservice.",
+    "statYears": "lat doświadczenia",
+    "statProjects": "projektów",
+    "statCompanies": "firm",
+    "yearsOld": "lat",
+    "ghRepos": "Repozytoria",
+    "ghCommits": "Commity",
+    "ghPRs": "Pull Requesty"
+  },
 
   "Experience": "Doświadczenie",
+  "exp": {
+    "current": "Aktualnie",
+    "period1": "02.2025 — obecnie",
+    "period2": "10.2021 — obecnie",
+    "period3": "07.2023 — 02.2025",
+    "period4": "01.2023 — 06.2023",
+    "period5": "04.2022 — 01.2023",
+    "period6": "06.2011 — 12.2021",
+    "desc1": "Rozwój i utrzymanie aplikacji webowych opartych na Laravel z Vue.js, React, Livewire i Inertia.js. Wdrożenie i zarządzanie infrastrukturą w chmurze AWS (EC2, ECS, RDS, S3, CloudFront). Budowa pipeline'ów CI/CD oraz środowisk Dockerowych.",
+    "desc2": "Rozwój aplikacji webowej CRM/ERP opartej na Laravel + Livewire, administracja serwera Linux, modernizacja sklepu PrestaShop. Wdrożenie Dockera i infrastruktury AWS.",
+    "desc3": "Rozwój aplikacji webowych opartych na Laravel z Vue.js, React, Livewire i Inertia.js. Wdrożenie nowych modułów CRM oraz integracja z zewnętrznymi API.",
+    "desc4": "Tworzenie aplikacji webowych w ekosystemie Laravel + Vue.js / React z wykorzystaniem Inertia.js i Bootstrap.",
+    "desc5": "Tworzenie i utrzymanie aplikacji webowych opartych na Laravel z Vue.js, Livewire i Tailwind CSS.",
+    "desc6": "Tworzenie stron i sklepów internetowych (PrestaShop, WordPress, Joomla) oraz aplikacji webowych (CodeIgniter, Yii, Laravel)."
+  },
 
   "Education": "Edukacja",
-
-  "Portfolio": "Portfolio",
-  "View project": "Zobacz projekt",
-  "Online store for firefighters based on prestashop": "Sklep internetowy dla strażaków oparty o prestashop",
-  "CRM and ERP software for sales management, integration with an online store and a trade program. Based on Laravel and Livewire using Fluxui.": "Oprogramowanie CRM i ERP do zarządzania sprzedażą, integracji ze sklepem internetowym oraz programem handlowym. Oparte o laravel oraz livewire z wykorzystaniem fluxui.",
-  "Own company offering Web Development, Hosting as well as administrative services": "Własna firma oferująca usługi web developmentu, hostingu jak również usług administracyjnych",
-
+  "edu": {
+    "period1": "2010 — 2014",
+    "period2": "2007 — 2010",
+    "title1": "Inżynier Informatyk",
+    "title2": "Liceum Profilowane",
+    "institution1": "Wrocławska Wyższa Szkoła Informatyki Stosowanej",
+    "institution2": "Zespół Szkół Ponadgimnazjalnych w Bystrzycy Kłodzkiej",
+    "desc1": "Studia inżynierskie na kierunku Administracja Sieci Komputerowych.",
+    "desc2": "Profil zarządzanie informacją."
+  },
 
   "Skills": "Umiejętności",
   "Programming languages": "Języki programowania",
   "Framework PHP": "Frameworki PHP",
   "Framework JavaScript": "Frameworki JavaScript",
-  "Framework CSS":  "Frameworki CSS",
+  "Framework CSS": "Frameworki CSS",
   "Databases": "Bazy danych",
   "DevOps and Systems": "DevOps i Systemy",
+  "Cloud AWS": "Chmura AWS",
   "Tools and others": "Narzędzia i inne",
   "Graphic and video": "Grafika i wideo",
   "Additional": "Dodatkowe",
+
+  "Portfolio": "Portfolio",
+  "View project": "Zobacz projekt",
+  "portfolio": {
+    "desc1": "Sklep internetowy dla strażaków oparty o PrestaShop z niestandardowym motywem i integracjami.",
+    "desc2": "Oprogramowanie CRM i ERP do zarządzania sprzedażą z integracją sklepu i programu handlowego. Laravel + Livewire + Flux UI.",
+    "desc3": "Własna firma oferująca usługi Web Development, hostingu oraz administracji serwerami.",
+    "desc4": "Publiczny poradnik DevOps – kolekcja wzorców, skryptów i konfiguracji CI/CD.",
+    "desc5": "Gotowe środowisko Docker dla projektów Laravel z Nginx, PHP-FPM i MySQL.",
+    "desc6": "Prosta aplikacja do zarządzania kartami czasu pracy i urlopami dla małych firm.",
+    "status": {
+      "live": "Live",
+      "private": "Prywatny",
+      "wip": "W toku"
+    }
+  },
 
   "Languages": "Języki",
   "English": "Angielski",
@@ -50,4 +99,3 @@
   "Level": "Poziom",
   "Native": "Ojczysty"
 }
-

@@ -1,43 +1,45 @@
 import type React from "react"
-import {useTranslation} from "react-i18next"
-import {motion, AnimatePresence} from "framer-motion"
-
-interface LanguageButtonProps {
-    lang: string
-    isActive: boolean
-    onClick: () => void
-}
-
-const LanguageButton: React.FC<LanguageButtonProps> = ({lang, isActive, onClick}) => (
-    <AnimatePresence mode="wait">
-        <motion.button
-            key={`${lang}-${isActive ? "active" : "inactive"}`}
-            initial={{opacity: 0, y: -20}}
-            animate={{opacity: 1, y: 0}}
-            exit={{opacity: 0, y: 20}}
-            transition={{duration: 0.3}}
-            onClick={onClick}
-            className={`
-            px-6 py-2 rounded-full transition-colors duration-300 border border-white/10
-        ${isActive ? "bg-zinc-700/40 text-white/80" : "bg-zinc-900/20 text-white/40 hover:bg-white/15 hover:text-white/70"}
-      `}
-        >
-            {lang.toUpperCase()}
-        </motion.button>
-    </AnimatePresence>
-)
+import { useTranslation } from "react-i18next"
+import { motion } from "framer-motion"
 
 const LanguageSwitcher: React.FC = () => {
-    const {i18n} = useTranslation()
+    const { i18n } = useTranslation()
 
-    const changeLanguage = (lng: string) => {
-        i18n.changeLanguage(lng)
-    }
+    const langs = [
+        { code: "pl", label: "PL" },
+        { code: "en", label: "EN" },
+    ]
 
     return (
-        <div className="flex space-x-2">
-            <LanguageButton lang="pl" isActive={i18n.language === "pl"} onClick={() => changeLanguage("pl")}/>
-            <LanguageButton lang="en" isActive={i18n.language === "en"} onClick={() => changeLanguage("en")}/>
+        <div
+            className="flex items-center gap-1 p-1 rounded-lg bg-[var(--color-bg-elevated)] border border-[var(--color-border)]"
+            role="group"
+            aria-label="Language switcher"
+        >
+            {langs.map((lang) => {
+                const isActive = i18n.language === lang.code
+                return (
+                    <button
+                        key={lang.code}
+                        onClick={() => i18n.changeLanguage(lang.code)}
+                        aria-pressed={isActive}
+                        className={`relative px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 ${
+                            isActive
+                                ? "text-white"
+                                : "text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]"
+                        }`}
+                    >
+                        {isActive && (
+                            <motion.span
+                                layoutId="lang-indicator"
+                                className="absolute inset-0 rounded-md bg-[var(--color-accent)]"
+                                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                            />
+                        )}
+                        <span className="relative z-10">{lang.label}</span>
+                    </button>
+                )
+            })}
         </div>
     )
 }
