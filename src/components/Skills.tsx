@@ -40,7 +40,7 @@ const skillCategories: SkillCategory[] = [
     {
         nameKey: "DevOps and Systems",
         icon: "🛠️",
-        skills: ["Docker", "Linux", "Nginx", "Git", "CI/CD", "Ansible"],
+        skills: ["Docker", "Linux", "Nginx", "Git", "CI/CD", "Ansible", "Terraform"],
     },
     {
         nameKey: "Cloud AWS",
@@ -83,7 +83,8 @@ const levelMap: Record<string, number> = {
     "Linux": 85,
     "Nginx": 82,
     "CI/CD": 80,
-    "Ansible": 72,
+    "Ansible": 61,
+    "Terraform": 61,
     "Git": 92,
     "EC2": 82,
     "S3": 85,
