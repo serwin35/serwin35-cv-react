@@ -6,10 +6,12 @@ interface AboutProps {
     isVisible: boolean
 }
 
-interface GitHubStats {
+interface GitHubUser {
     public_repos: number
-    followers: number
-    following: number
+}
+
+interface GitHubSearchResult {
+    total_count: number
 }
 
 function calcAge(): number {
@@ -32,8 +34,18 @@ export default function About({ isVisible }: AboutProps) {
     const age = calcAge()
     const yearsExp = calcYearsOfExp()
 
-    const { data: ghStats } = useSWR<GitHubStats>(
+    const { data: ghUser } = useSWR<GitHubUser>(
         "https://api.github.com/users/serwin35",
+        fetcher,
+        { revalidateOnFocus: false }
+    )
+    const { data: ghCommits } = useSWR<GitHubSearchResult>(
+        "https://api.github.com/search/commits?q=author:serwin35&per_page=1",
+        fetcher,
+        { revalidateOnFocus: false }
+    )
+    const { data: ghPRs } = useSWR<GitHubSearchResult>(
+        "https://api.github.com/search/issues?q=author:serwin35+type:pr&per_page=1",
         fetcher,
         { revalidateOnFocus: false }
     )
@@ -91,9 +103,9 @@ export default function About({ isVisible }: AboutProps) {
                 </h3>
                 <div className="grid grid-cols-3 gap-3 mb-4">
                     {[
-                        { value: ghStats?.public_repos ?? "—", label: t("about.ghRepos") },
-                        { value: ghStats?.followers ?? "—",    label: t("about.ghFollowers") },
-                        { value: ghStats?.following ?? "—",    label: t("about.ghFollowing") },
+                        { value: ghUser?.public_repos ?? "—",      label: t("about.ghRepos") },
+                        { value: ghCommits?.total_count != null ? `${ghCommits.total_count.toLocaleString()}+` : "—", label: t("about.ghCommits") },
+                        { value: ghPRs?.total_count != null ? `${ghPRs.total_count.toLocaleString()}+` : "—",         label: t("about.ghPRs") },
                     ].map((item, i) => (
                         <div key={i} className="text-center bg-[var(--color-bg-elevated)] rounded-lg py-3 px-2">
                             <span className="block text-xl font-bold text-[var(--color-accent)]">{item.value}</span>

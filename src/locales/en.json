@@ -32,8 +32,8 @@
     "statCompanies": "companies",
     "yearsOld": "years old",
     "ghRepos": "Repositories",
-    "ghFollowers": "Followers",
-    "ghFollowing": "Following"
+    "ghCommits": "Commits",
+    "ghPRs": "Pull Requests"
   },
 
   "Experience": "Experience",
