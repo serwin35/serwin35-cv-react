@@ -5,6 +5,8 @@
     "cityAndCountry": "Lodz, Poland",
     "firefighter": "Volunteer Firefighter · OSP Stara Łomnica",
     "yearsExp": "years of experience",
+    "projects": "projects",
+    "remote": "Remote",
     "contact": "Contact me"
   },
   "nav": {
@@ -21,13 +23,17 @@
   "About Me": "About Me",
   "Personal Information": "Personal Information",
   "Phone": "Phone",
-  "Date of birth": "Date of birth",
+  "Age": "Age",
 
   "about": {
-    "bio": "I am an experienced Full-Stack Developer and DevOps Engineer with over 10 years of industry experience. I specialize in building modern web applications with Laravel, Vue.js and React, while also managing server infrastructure — Docker, Linux and CI/CD pipelines. Currently working at Kuchnia Vikinga and DMservice.",
+    "bio": "I am an experienced Full-Stack Developer and DevOps Engineer with over 17 years of industry experience. I specialize in building modern web applications with Laravel, Vue.js and React, while also managing cloud infrastructure — Docker, AWS and CI/CD pipelines. Currently working at Kuchnia Vikinga and DMservice.",
     "statYears": "years of experience",
     "statProjects": "projects delivered",
-    "statCompanies": "companies"
+    "statCompanies": "companies",
+    "yearsOld": "years old",
+    "ghRepos": "Repositories",
+    "ghFollowers": "Followers",
+    "ghFollowing": "Following"
   },
 
   "Experience": "Experience",

@@ -2,8 +2,13 @@ import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next"
 import avatarImg from "../assets/images/avatar.jpg"
 
+function calcYearsOfExp(): number {
+    return new Date().getFullYear() - 2008
+}
+
 export default function Header() {
     const { t, i18n } = useTranslation()
+    const yearsExp = calcYearsOfExp()
 
     return (
         <motion.div
@@ -21,8 +26,10 @@ export default function Header() {
                         className="w-full h-full object-cover"
                     />
                 </div>
-                {/* Online indicator */}
-                <span className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-[var(--color-bg-surface)] shadow" title="Available for work" />
+                <span
+                    className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-[var(--color-bg-surface)] shadow"
+                    title="Available for work"
+                />
             </div>
 
             {/* Info */}
@@ -71,7 +78,7 @@ export default function Header() {
                     </span>
                 </motion.div>
 
-                {/* Badges */}
+                {/* Stat badges — dynamiczne, bez powielania tech tagów */}
                 <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -79,10 +86,14 @@ export default function Header() {
                     className="flex flex-wrap gap-2 mb-5"
                     key={i18n.language}
                 >
-                    {["Laravel", "Vue.js", "React", "Docker", "DevOps"].map((tech) => (
-                        <span key={tech} className="tech-tag">{tech}</span>
-                    ))}
-                    <span className="tech-tag">10+ {t("header.yearsExp")}</span>
+                    <span className="tech-tag font-semibold">
+                        <span className="text-[var(--color-accent)]">{yearsExp}</span>&nbsp;{t("header.yearsExp")}
+                    </span>
+                    <span className="tech-tag font-semibold">
+                        <span className="text-[var(--color-accent)]">90+</span>&nbsp;{t("header.projects")}
+                    </span>
+                    <span className="tech-tag">Full-Stack &amp; DevOps</span>
+                    <span className="tech-tag">{t("header.remote")}</span>
                 </motion.div>
 
                 {/* Links */}

@@ -1,18 +1,43 @@
 import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next"
+import useSWR from "swr"
 
 interface AboutProps {
     isVisible: boolean
 }
 
-const stats = [
-    { value: "10+", labelKey: "about.statYears" },
-    { value: "50+", labelKey: "about.statProjects" },
-    { value: "5",   labelKey: "about.statCompanies" },
-]
+interface GitHubStats {
+    public_repos: number
+    followers: number
+    following: number
+}
+
+function calcAge(): number {
+    const birth = new Date(1991, 9, 18) // 18.10.1991
+    const today = new Date()
+    let age = today.getFullYear() - birth.getFullYear()
+    const m = today.getMonth() - birth.getMonth()
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--
+    return age
+}
+
+function calcYearsOfExp(): number {
+    return new Date().getFullYear() - 2008
+}
+
+const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 export default function About({ isVisible }: AboutProps) {
     const { t } = useTranslation()
+    const age = calcAge()
+    const yearsExp = calcYearsOfExp()
+
+    const { data: ghStats } = useSWR<GitHubStats>(
+        "https://api.github.com/users/serwin35",
+        fetcher,
+        { revalidateOnFocus: false }
+    )
+
     if (!isVisible) return null
 
     return (
@@ -31,9 +56,13 @@ export default function About({ isVisible }: AboutProps) {
                 {t("about.bio")}
             </p>
 
-            {/* Stats row */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
-                {stats.map((stat, i) => (
+            {/* Stats row — dynamiczne */}
+            <div className="grid grid-cols-3 gap-4 mb-6">
+                {[
+                    { value: `${yearsExp}+`, labelKey: "about.statYears" },
+                    { value: "90+",          labelKey: "about.statProjects" },
+                    { value: "5",            labelKey: "about.statCompanies" },
+                ].map((stat, i) => (
                     <motion.div
                         key={i}
                         initial={{ opacity: 0, y: 12 }}
@@ -46,6 +75,42 @@ export default function About({ isVisible }: AboutProps) {
                     </motion.div>
                 ))}
             </div>
+
+            {/* GitHub stats */}
+            <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.28 }}
+                className="cv-card p-5 mb-6"
+            >
+                <h3 className="text-sm font-semibold text-[var(--color-text-primary)] mb-4 flex items-center gap-2">
+                    <svg className="w-4 h-4 text-[var(--color-accent)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                    </svg>
+                    GitHub — serwin35
+                </h3>
+                <div className="grid grid-cols-3 gap-3 mb-4">
+                    {[
+                        { value: ghStats?.public_repos ?? "—", label: t("about.ghRepos") },
+                        { value: ghStats?.followers ?? "—",    label: t("about.ghFollowers") },
+                        { value: ghStats?.following ?? "—",    label: t("about.ghFollowing") },
+                    ].map((item, i) => (
+                        <div key={i} className="text-center bg-[var(--color-bg-elevated)] rounded-lg py-3 px-2">
+                            <span className="block text-xl font-bold text-[var(--color-accent)]">{item.value}</span>
+                            <span className="text-xs text-[var(--color-text-muted)]">{item.label}</span>
+                        </div>
+                    ))}
+                </div>
+                {/* Contribution graph via GitHub chart */}
+                <div className="rounded-lg overflow-hidden border border-[var(--color-border)]">
+                    <img
+                        src="https://ghchart.rshah.org/3b82f6/serwin35"
+                        alt="GitHub contribution chart"
+                        className="w-full h-auto block"
+                        style={{ background: "transparent" }}
+                    />
+                </div>
+            </motion.div>
 
             {/* Personal info */}
             <div className="cv-card p-6">
@@ -72,8 +137,10 @@ export default function About({ isVisible }: AboutProps) {
                         </a>
                     </div>
                     <div>
-                        <p className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mb-1">{t("Date of birth")}</p>
-                        <span className="text-sm text-[var(--color-text-secondary)]">18.10.1991</span>
+                        <p className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mb-1">{t("Age")}</p>
+                        <span className="text-sm text-[var(--color-text-secondary)]">
+                            {age} {t("about.yearsOld")}
+                        </span>
                     </div>
                 </div>
             </div>

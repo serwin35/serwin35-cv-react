@@ -5,6 +5,8 @@
     "cityAndCountry": "Łódź, Polska",
     "firefighter": "Strażak-Ratownik · OSP Stara Łomnica",
     "yearsExp": "lat doświadczenia",
+    "projects": "projektów",
+    "remote": "Praca zdalna",
     "contact": "Napisz do mnie"
   },
   "nav": {
@@ -21,13 +23,17 @@
   "About Me": "O mnie",
   "Personal Information": "Dane osobowe",
   "Phone": "Telefon",
-  "Date of birth": "Data urodzenia",
+  "Age": "Wiek",
 
   "about": {
-    "bio": "Jestem doświadczonym Full-Stack Developerem oraz DevOps Engineerem z ponad 10-letnim stażem. Specjalizuję się w tworzeniu nowoczesnych aplikacji webowych opartych na Laravel, Vue.js i React, a równolegle zarządzam infrastrukturą serwerową – Docker, Linux i CI/CD. Pracuję dla firm takich jak Kuchnia Vikinga i DMservice.",
+    "bio": "Jestem doświadczonym Full-Stack Developerem oraz DevOps Engineerem z ponad 17-letnim stażem. Specjalizuję się w tworzeniu nowoczesnych aplikacji webowych opartych na Laravel, Vue.js i React, a równolegle zarządzam infrastrukturą serwerową – Docker, AWS i CI/CD. Pracuję dla firm takich jak Kuchnia Vikinga i DMservice.",
     "statYears": "lat doświadczenia",
     "statProjects": "projektów",
-    "statCompanies": "firm"
+    "statCompanies": "firm",
+    "yearsOld": "lat",
+    "ghRepos": "Repozytoria",
+    "ghFollowers": "Obserwujący",
+    "ghFollowing": "Obserwowani"
   },
 
   "Experience": "Doświadczenie",
